@@ -63,6 +63,8 @@ const char* Vehicle::_flightDistanceFactName =      "flightDistance";
 const char* Vehicle::_flightTimeFactName =          "flightTime";
 const char* Vehicle::_distanceToHomeFactName =      "distanceToHome";
 const char* Vehicle::_hobbsFactName =               "hobbs";
+const char* Vehicle::_tetherForceFactName =         "tetherForce";
+const char* Vehicle::_AoAFactName =                 "AoA";
 
 const char* Vehicle::_gpsFactGroupName =        "gps";
 const char* Vehicle::_batteryFactGroupName =    "battery";
@@ -175,6 +177,8 @@ Vehicle::Vehicle(LinkInterface*             link,
     , _flightTimeFact       (0, _flightTimeFactName,        FactMetaData::valueTypeElapsedTimeInSeconds)
     , _distanceToHomeFact   (0, _distanceToHomeFactName,    FactMetaData::valueTypeDouble)
     , _hobbsFact            (0, _hobbsFactName,             FactMetaData::valueTypeString)
+    , _AoAFact              (0, _AoAFactName,               FactMetaData::valueTypeDouble)
+    , _tetherForceFact      (0, _tetherForceFactName,       FactMetaData::valueTypeDouble)
     , _gpsFactGroup(this)
     , _batteryFactGroup(this)
     , _windFactGroup(this)
@@ -362,6 +366,8 @@ Vehicle::Vehicle(MAV_AUTOPILOT              firmwareType,
     , _flightTimeFact       (0, _flightTimeFactName,        FactMetaData::valueTypeElapsedTimeInSeconds)
     , _distanceToHomeFact   (0, _distanceToHomeFactName,    FactMetaData::valueTypeDouble)
     , _hobbsFact            (0, _hobbsFactName,             FactMetaData::valueTypeString)
+    , _AoAFact              (0, _AoAFactName,               FactMetaData::valueTypeDouble)
+    , _tetherForceFact      (0, _tetherForceFactName,       FactMetaData::valueTypeDouble)
     , _gpsFactGroup(this)
     , _batteryFactGroup(this)
     , _windFactGroup(this)
@@ -424,6 +430,9 @@ void Vehicle::_commonInit(void)
 
     _hobbsFact.setRawValue(QVariant(QString("0000:00:00")));
     _addFact(&_hobbsFact,               _hobbsFactName);
+
+    _addFact(&_tetherForceFact,         _tetherForceFactName);
+    _addFact(&_AoAFact,                 _AoAFactName);
 
     _addFactGroup(&_gpsFactGroup,       _gpsFactGroupName);
     _addFactGroup(&_batteryFactGroup,   _batteryFactGroupName);

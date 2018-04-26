@@ -79,5 +79,19 @@
     "name":             "hobbs",
     "shortDescription": "Hobbs Meter",
     "type":             "string"
+},
+{
+    "name":             "tetherForce",
+    "shortDescription": "Tether Force",
+    "type":             "double",
+    "decimalPlaces":    3,
+    "units":            "N"
+},
+{
+    "name":             "AoA",
+    "shortDescription": "Angle of Atack",
+    "type":             "double",
+    "decimalPlaces":    3,
+    "units":            "deg"
 }
 ]

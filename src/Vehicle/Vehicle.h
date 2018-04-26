@@ -361,7 +361,7 @@ public:
     Q_PROPERTY(bool guidedModeSupported     READ guidedModeSupported CONSTANT)                              ///< Guided mode commands are supported by this vehicle
     Q_PROPERTY(bool pauseVehicleSupported   READ pauseVehicleSupported CONSTANT)                            ///< Pause vehicle command is supported
     Q_PROPERTY(bool orbitModeSupported      READ orbitModeSupported CONSTANT)                               ///< Orbit mode is supported by this vehicle
-    Q_PROPERTY(bool takeoffVehicleSupported READ takeoffVehicleSupported CONSTANT)                          ///< Guided takeoff supported    
+    Q_PROPERTY(bool takeoffVehicleSupported READ takeoffVehicleSupported CONSTANT)                          ///< Guided takeoff supported
 
     Q_PROPERTY(ParameterManager* parameterManager READ parameterManager CONSTANT)
 
@@ -378,6 +378,8 @@ public:
     Q_PROPERTY(Fact* flightDistance     READ flightDistance     CONSTANT)
     Q_PROPERTY(Fact* distanceToHome     READ distanceToHome     CONSTANT)
     Q_PROPERTY(Fact* hobbs              READ hobbs              CONSTANT)
+    Q_PROPERTY(Fact* tetherForce        READ tetherForce        CONSTANT)
+    Q_PROPERTY(Fact* AoA                READ AoA                CONSTANT)
 
     Q_PROPERTY(FactGroup* gps         READ gpsFactGroup         CONSTANT)
     Q_PROPERTY(FactGroup* battery     READ batteryFactGroup     CONSTANT)
@@ -655,6 +657,8 @@ public:
     Fact* flightDistance    (void) { return &_flightDistanceFact; }
     Fact* distanceToHome    (void) { return &_distanceToHomeFact; }
     Fact* hobbs             (void) { return &_hobbsFact; }
+    Fact* tetherForce       (void) { return &_tetherForceFact; }
+    Fact* AoA               (void) { return &_AoAFact; }
 
     FactGroup* gpsFactGroup         (void) { return &_gpsFactGroup; }
     FactGroup* batteryFactGroup     (void) { return &_batteryFactGroup; }
@@ -1115,6 +1119,8 @@ private:
     Fact _flightTimeFact;
     Fact _distanceToHomeFact;
     Fact _hobbsFact;
+    Fact _tetherForceFact;
+    Fact _AoAFact;
 
     VehicleGPSFactGroup         _gpsFactGroup;
     VehicleBatteryFactGroup     _batteryFactGroup;
@@ -1135,6 +1141,8 @@ private:
     static const char* _flightTimeFactName;
     static const char* _distanceToHomeFactName;
     static const char* _hobbsFactName;
+    static const char* _tetherForceFactName;
+    static const char* _AoAFactName;
 
     static const char* _gpsFactGroupName;
     static const char* _batteryFactGroupName;
