@@ -705,7 +705,7 @@ void Vehicle::_mavlinkMessageReceived(LinkInterface* link, mavlink_message_t mes
     case MAVLINK_MSG_ID_HIGH_LATENCY2:
         _handleHighLatency2(message);
         break;
-    case MAVLINK_MSG_ID_FTERO_VALUES:
+    case MAVLINK_MSG_ID_FTERO_SENSORS:
         _handleFteroValues(message);
 
     case MAVLINK_MSG_ID_SERIAL_CONTROL:
@@ -1461,8 +1461,8 @@ void Vehicle::_handleScaledPressure3(mavlink_message_t& message) {
 
 void Vehicle::_handleFteroValues(mavlink_message_t& message)
 {
-    mavlink_ftero_values_t ftero_val;
-    mavlink_msg_ftero_values_decode(&message, &ftero_val);
+    mavlink_ftero_sensors_t ftero_val;
+    mavlink_msg_ftero_sensors_decode(&message, &ftero_val);
 
     _AoAFact.setRawValue(qIsNaN(ftero_val.AoA) ? 0 : ftero_val.AoA);
     _tetherForceFact.setRawValue(qIsNaN(ftero_val.tether_force) ? 0 : ftero_val.tether_force);

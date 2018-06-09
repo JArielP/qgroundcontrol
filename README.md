@@ -36,6 +36,7 @@ QGroundControl builds are supported for OSX, Linux, Windows, iOS and Android. QG
 ###### Install QT
 You **need to install Qt as described below** instead of using pre-built packages from say, a Linux distribution, because QGroundControl needs access to private Qt headers.
 * Download the [Qt installer](http://www.qt.io/download-open-source)
+    * https://download.qt.io/official_releases/qt/5.9/5.9.3/
     * Make sure to install Qt version **5.9.3**. You will also need to install the Qt Speech package.
     * Ubuntu: Set the downloaded file to executable using:`chmod +x`. Install to default location for use with ./qgroundcontrol-start.sh. If you install Qt to a non-default location you will need to modify qgroundcontrol-start.sh in order to run downloaded builds.
     * Windows: Make sure to install VS 2015 32 bit package.
